@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { MapsApp } from './MapsApp.tsx';
 
 import mapboxgl from 'mapbox-gl';
+import { ACCESS_TOKEN } from './consts';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZWR3YXJkMjU1MyIsImEiOiJjbHVqODdmbGUwZGQwMmpvMmtwM2VkMzA4In0.VtelFyg8iqyh3HN_iaVtDQ';
+mapboxgl.accessToken = ACCESS_TOKEN;
 
 if (!navigator.geolocation) {
   const navigationLocationError =

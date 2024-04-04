@@ -1,10 +1,14 @@
-import { Map } from "mapbox-gl";
-import { createContext } from "react";
+import { Map } from 'mapbox-gl';
+import { createContext } from 'react';
 
 interface MapContextProps {
-    isMapReady: boolean;
-    map?: Map;
-    setMap: (map: Map) => void;
+  isMapReady: boolean;
+  map?: Map;
+  setMap: (map: Map) => void;
+  getRoutesBetweenPoints: (
+    start: [number, number],
+    end: [number, number]
+  ) => Promise<void>;
 }
 
-export const MapContext = createContext({} as MapContextProps)
+export const MapContext = createContext({} as MapContextProps);

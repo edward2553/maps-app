@@ -2,6 +2,7 @@ import { useContext, useLayoutEffect, useRef } from 'react';
 import { MapContext, PlacesContext } from '../context';
 import { Loading } from './Loading';
 import { Map } from 'mapbox-gl';
+import { DEFAULT_ZOOM } from '../consts';
 
 export const MapView = () => {
   const { isLoading, userLocation } = useContext(PlacesContext);
@@ -15,7 +16,7 @@ export const MapView = () => {
         container: mapDiv.current!,
         style: 'mapbox://styles/mapbox/streets-v11',
         center: { lat: userLocation.lat, lng: userLocation.lng },
-        zoom: 14,
+        zoom: DEFAULT_ZOOM,
       });
       setMap(map);
     }

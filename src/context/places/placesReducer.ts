@@ -1,7 +1,10 @@
 import { TUserLocation } from '../../interfaces';
-import { PlacesState } from '../../interfaces/places';
+import { Feature, PlacesState } from '../../interfaces/places';
 
-type placesAction = { type: 'setUserLocation'; payload: TUserLocation };
+type placesAction =
+  | { type: 'setUserLocation'; payload: TUserLocation }
+  | { type: 'setPlaces'; payload: Feature[] }
+  |  { type: 'setLoadingPLaces' };
 
 export const placesReducer = (
   state: PlacesState,
@@ -14,6 +17,18 @@ export const placesReducer = (
         isLoading: false,
         userLocation: action.payload,
       };
+      case 'setLoadingPLaces': 
+        return {
+          ...state,
+          isLoadingPlaces: true,
+          places: []
+        };
+      case 'setPlaces':
+        return {
+          ...state,
+          isLoadingPlaces: false,
+          places : action.payload,
+        };
 
     default:
       return state;
